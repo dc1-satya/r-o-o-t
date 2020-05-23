@@ -2,22 +2,29 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 <div id="app">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-
-<table class="table table-striped">
+<table id="myTable"class="table table-striped">
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/articles">Articles</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/ph-p">PHP</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/php-laravel">PHP Laravel</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/tech-articles">Tech Articles</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/youtube-links">You Tube</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/payment-gateways">Payment Gateways</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/react-js-native">React JS - React Native</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/scripts-demo">Project Scripts Demo</td></tr>
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/languages">Spoken Languages</td></tr>
-<tr><td><a target="_blank" href="https://stackblitz.com/edit/flutter">Flutter</td></tr>
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/youtube-links">You Tube</td></tr>
+
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/tech-articles">Tech Articles</td></tr>
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/tech-helloworld">Tech Hello World</td></tr>
+
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/web-html-css">Web HTML CSS</td></tr>
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/java-script">Javascript</td></tr>
+
+
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/react-js-native">React JS - React Native</td></tr>
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/flutter">Flutter</td></tr>
+
+
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/ph-p">PHP</td></tr>
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/php-laravel">PHP Laravel</td></tr>
+
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/payment-gateways">Payment Gateways</td></tr>
+<tr><td><a target="_blank" href="https://stackblitz.com/edit/scripts-demo">Project Scripts Demo</td></tr>
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/net-technologies">.Net Technologies</td></tr>
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/sql">SQL</td></tr>
 <tr><td><a target="_blank" href="https://stackblitz.com/edit/dev-ops">DevOps</td></tr>
@@ -45,5 +52,24 @@
 
 
 </table>
-
+<script>
+  function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+  </script>
 </div>
